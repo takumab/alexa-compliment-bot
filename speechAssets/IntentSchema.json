@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "GetNewFactIntent"
+      "intent": "GetNewComplimentIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"

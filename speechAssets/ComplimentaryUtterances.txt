@@ -1,0 +1,11 @@
+GetNewComplimentIntent tell me a compliment
+GetNewComplimentIntent give me a compliment
+GetNewComplimentIntent I'm sad
+GetNewComplimentIntent a compliment
+GetNewComplimentIntent cheer me up
+GetNewComplimentIntent tell me something nice
+GetNewComplimentIntent what do you know about me?
+GetNewComplimentIntent nice thing to say
+GetNewComplimentIntent say something nice
+GetNewComplimentIntent give me compliments
+GetNewComplimentIntent I'm having a bad day
