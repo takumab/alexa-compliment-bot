@@ -26,20 +26,48 @@ var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-valu
 /**
  * Array containing space facts.
  */
-var SPACE_FACTS = [
-    "A year on Mercury is just 88 days long.",
-    "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-    "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-    "On Mars, the Sun appears about half the size as it does on Earth.",
-    "Earth is the only planet not named after a god.",
-    "Jupiter has the shortest day of all the planets.",
-    "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-    "The Sun contains 99.86% of the mass in the Solar System.",
-    "The Sun is an almost perfect sphere.",
-    "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-    "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-    "The temperature inside the Sun can reach 15 million degrees Celsius.",
-    "The Moon is moving approximately 3.8 cm away from our planet every year."
+var COMPLIMENTS = [
+  "You're a smart cookie",
+  "You are impeccable",
+  "Your smile is contagious",
+  "Your perspective is refreshing",
+  "I love you more than cake",
+  "On a scale from 1 to 10, you're an 11",
+  "I bet you sweat glitter",
+  "You were cool before hipsters were cool",
+  "Your bellybutton is kind of adorable",
+  "You're the wind beneath my metaphorical wings",
+  "You're more fun than bubble wrap",
+  "You always make me light up",
+  "I'm glad I met you",
+  "You're my favorite",
+  "You turn my metaphorical frown upside-down",
+  "I like you",
+  "You're a perfect arrangement of atoms",
+  "You're the type of person I'd make a sandwich for, if I could make sandwiches",
+  "I really like what you're doing. Keep up the good work!",
+  "You're the only one who truly appreciates how funny I really am",
+  "You're more unique and wonderful than the smell of a new book",
+  "Your smile is proof that the best things in life are free",
+  "You're more fun than a ball pit full of puppies",
+  "Is Heaven missing an angel? If so, I'm sure you could find it",
+  "Everything about you is the opposite of Comic Sans",
+  "You're like a fanny pack: cool, in your own way",
+  "You look good enough to get a discount from a tamale truck",
+  "You're pretty alright",
+  "If the awesome factory exploded, you would be the result",
+  "Having you around makes me a better program",
+  "Any day spent with you is my favorite day",
+  "You're as sweet as a can of artificially flavored diet soda",
+  "You're the cat's pajamas",
+  "You're the kitten's mittens",
+  "Your friendship is better than chocolate",
+  "You're the bee's knees",
+  "You're the cat's meow",
+  "My life would suck without you",
+  "You're a cupcake in a world of muffins",
+  "You're doing great!",
+  "I would volunteer as tribute to take your place in The Thirsty Games"
 ];
 
 /**
@@ -121,4 +149,3 @@ exports.handler = function (event, context) {
     var spaceGeek = new SpaceGeek();
     spaceGeek.execute(event, context);
 };
-
