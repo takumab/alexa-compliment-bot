@@ -96,7 +96,7 @@ SpaceGeek.prototype.eventHandlers.onSessionStarted = function (sessionStartedReq
 
 SpaceGeek.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("SpaceGeek onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    handleNewFactRequest(response);
+    handleNewComplimentRequest(response);
 };
 
 /**
@@ -108,8 +108,8 @@ SpaceGeek.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest
 };
 
 SpaceGeek.prototype.intentHandlers = {
-    "GetNewFactIntent": function (intent, session, response) {
-        handleNewFactRequest(response);
+    "GetNewComplimentIntent": function (intent, session, response) {
+        handleNewComplimentRequest(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
@@ -128,15 +128,12 @@ SpaceGeek.prototype.intentHandlers = {
 };
 
 /**
- * Gets a random new fact from the list and returns to the user.
+ * Gets a random new compliment from the list and returns to the user.
  */
-function handleNewFactRequest(response) {
-    // Get a random space fact from the space facts list
-    var factIndex = Math.floor(Math.random() * SPACE_FACTS.length);
-    var fact = SPACE_FACTS[factIndex];
-
-    // Create speech output
-    var speechOutput = "Here's your space fact: " + fact;
+function handleNewComplimentRequest(response) {
+    // Get a random compliment from the space facts list
+    var i = Math.floor(Math.random() * COMPLIMENTS.length);
+    var speechOutput = COMPLIMENTS[i];
 
     response.tellWithCard(speechOutput, "SpaceGeek", speechOutput);
 }
