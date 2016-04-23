@@ -21,7 +21,7 @@
 /**
  * App ID for the skill
  */
-var APP_ID = 'arn:aws:lambda:us-east-1:014157332264:function:complimentBot';
+var APP_ID = 'amzn1.echo-sdk-ams.app.5e6c9c5c-a0b7-47c0-ba8c-d8a341f8e685';
 
 /**
  * Array containing space facts.
