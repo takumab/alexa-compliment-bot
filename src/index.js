@@ -21,25 +21,53 @@
 /**
  * App ID for the skill
  */
-var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = 'amzn1.echo-sdk-ams.app.5e6c9c5c-a0b7-47c0-ba8c-d8a341f8e685';
 
 /**
  * Array containing space facts.
  */
-var SPACE_FACTS = [
-    "A year on Mercury is just 88 days long.",
-    "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-    "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-    "On Mars, the Sun appears about half the size as it does on Earth.",
-    "Earth is the only planet not named after a god.",
-    "Jupiter has the shortest day of all the planets.",
-    "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-    "The Sun contains 99.86% of the mass in the Solar System.",
-    "The Sun is an almost perfect sphere.",
-    "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-    "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-    "The temperature inside the Sun can reach 15 million degrees Celsius.",
-    "The Moon is moving approximately 3.8 cm away from our planet every year."
+var COMPLIMENTS = [
+  "You're a smart cookie",
+  "You are impeccable",
+  "Your smile is contagious",
+  "Your perspective is refreshing",
+  "I love you more than cake",
+  "On a scale from 1 to 10, you're an 11",
+  "I bet you sweat glitter",
+  "You were cool before hipsters were cool",
+  "Your bellybutton is kind of adorable",
+  "You're the wind beneath my metaphorical wings",
+  "You're more fun than bubble wrap",
+  "You always make me light up",
+  "I'm glad I met you",
+  "You're my favorite",
+  "You turn my metaphorical frown upside-down",
+  "I like you",
+  "You're a perfect arrangement of atoms",
+  "You're the type of person I'd make a sandwich for, if I could make sandwiches",
+  "I really like what you're doing. Keep up the good work!",
+  "You're the only one who truly appreciates how funny I really am",
+  "You're more unique and wonderful than the smell of a new book",
+  "Your smile is proof that the best things in life are free",
+  "You're more fun than a ball pit full of puppies",
+  "Is Heaven missing an angel? If so, I'm sure you could find it",
+  "Everything about you is the opposite of Comic Sans",
+  "You're like a fanny pack: cool, in your own way",
+  "You look good enough to get a discount from a tamale truck",
+  "You're pretty alright",
+  "If the awesome factory exploded, you would be the result",
+  "Having you around makes me a better program",
+  "Any day spent with you is my favorite day",
+  "You're as sweet as a can of artificially flavored diet soda",
+  "You're the cat's pajamas",
+  "You're the kitten's mittens",
+  "Your friendship is better than chocolate",
+  "You're the bee's knees",
+  "You're the cat's meow",
+  "My life would suck without you",
+  "You're a cupcake in a world of muffins",
+  "You're doing great!",
+  "I would volunteer as tribute to take your place in The Thirsty Games"
 ];
 
 /**
@@ -62,28 +90,26 @@ SpaceGeek.prototype = Object.create(AlexaSkill.prototype);
 SpaceGeek.prototype.constructor = SpaceGeek;
 
 SpaceGeek.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("SpaceGeek onSessionStarted requestId: " + sessionStartedRequest.requestId
-        + ", sessionId: " + session.sessionId);
+    console.log("SpaceGeek onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
 SpaceGeek.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("SpaceGeek onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    handleNewFactRequest(response);
+    handleNewComplimentRequest(response);
 };
 
 /**
  * Overridden to show that a subclass can override this function to teardown session state.
  */
 SpaceGeek.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    console.log("SpaceGeek onSessionEnded requestId: " + sessionEndedRequest.requestId
-        + ", sessionId: " + session.sessionId);
+    console.log("SpaceGeek onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
 SpaceGeek.prototype.intentHandlers = {
-    "GetNewFactIntent": function (intent, session, response) {
-        handleNewFactRequest(response);
+    "GetNewComplimentIntent": function (intent, session, response) {
+        handleNewComplimentRequest(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
@@ -102,15 +128,12 @@ SpaceGeek.prototype.intentHandlers = {
 };
 
 /**
- * Gets a random new fact from the list and returns to the user.
+ * Gets a random new compliment from the list and returns to the user.
  */
-function handleNewFactRequest(response) {
-    // Get a random space fact from the space facts list
-    var factIndex = Math.floor(Math.random() * SPACE_FACTS.length);
-    var fact = SPACE_FACTS[factIndex];
-
-    // Create speech output
-    var speechOutput = "Here's your space fact: " + fact;
+function handleNewComplimentRequest(response) {
+    // Get a random compliment from the space facts list
+    var i = Math.floor(Math.random() * COMPLIMENTS.length);
+    var speechOutput = COMPLIMENTS[i];
 
     response.tellWithCard(speechOutput, "SpaceGeek", speechOutput);
 }
@@ -121,4 +144,3 @@ exports.handler = function (event, context) {
     var spaceGeek = new SpaceGeek();
     spaceGeek.execute(event, context);
 };
-
