@@ -90,8 +90,7 @@ SpaceGeek.prototype = Object.create(AlexaSkill.prototype);
 SpaceGeek.prototype.constructor = SpaceGeek;
 
 SpaceGeek.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("SpaceGeek onSessionStarted requestId: " + sessionStartedRequest.requestId
-        + ", sessionId: " + session.sessionId);
+    console.log("SpaceGeek onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
@@ -104,8 +103,7 @@ SpaceGeek.prototype.eventHandlers.onLaunch = function (launchRequest, session, r
  * Overridden to show that a subclass can override this function to teardown session state.
  */
 SpaceGeek.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    console.log("SpaceGeek onSessionEnded requestId: " + sessionEndedRequest.requestId
-        + ", sessionId: " + session.sessionId);
+    console.log("SpaceGeek onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
