@@ -1,5 +1,5 @@
 # alexa-compliment-bot
 
-An Alexa Skill collaboration with [@risachi](https://github.com/risachi) based on her [Compliment Bot](https://github.com/risachi/complimentbot).
+An Alexa Skill collaboration with [@risachi](https://github.com/risachi), bringing her [Compliment Bot](https://github.com/risachi/complimentbot) to Amazon's Echo.
 
 <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
