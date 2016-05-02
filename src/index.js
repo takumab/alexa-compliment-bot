@@ -14,8 +14,8 @@
  *
  * Examples:
  * One-shot model:
- *  User: "Alexa, ask Space Geek for a space fact"
- *  Alexa: "Here's your space fact: ..."
+ *  User: "Alexa, ask Compliment Bot for a compliment"
+ *  Alexa: "Here's your compliment: ..."
  */
 
 /**
@@ -24,7 +24,7 @@
 var APP_ID = 'amzn1.echo-sdk-ams.app.5e6c9c5c-a0b7-47c0-ba8c-d8a341f8e685';
 
 /**
- * Array containing space facts.
+ * Array containing compliments.
  */
 var COMPLIMENTS = [
   "You're a smart cookie",
@@ -76,44 +76,44 @@ var COMPLIMENTS = [
 var AlexaSkill = require('./AlexaSkill');
 
 /**
- * SpaceGeek is a child of AlexaSkill.
+ * ComplimentBot is a child of AlexaSkill.
  * To read more about inheritance in JavaScript, see the link below.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
-var SpaceGeek = function () {
+var ComplimentBot = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
 // Extend AlexaSkill
-SpaceGeek.prototype = Object.create(AlexaSkill.prototype);
-SpaceGeek.prototype.constructor = SpaceGeek;
+ComplimentBot.prototype = Object.create(AlexaSkill.prototype);
+ComplimentBot.prototype.constructor = ComplimentBot;
 
-SpaceGeek.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("SpaceGeek onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
+ComplimentBot.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+    console.log("ComplimentBot onSessionStarted requestId: " + sessionStartedRequest.requestId + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
-SpaceGeek.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    console.log("SpaceGeek onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+ComplimentBot.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log("ComplimentBot onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewComplimentRequest(response);
 };
 
 /**
  * Overridden to show that a subclass can override this function to teardown session state.
  */
-SpaceGeek.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    console.log("SpaceGeek onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
+ComplimentBot.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+    console.log("ComplimentBot onSessionEnded requestId: " + sessionEndedRequest.requestId + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
-SpaceGeek.prototype.intentHandlers = {
+ComplimentBot.prototype.intentHandlers = {
     "GetNewComplimentIntent": function (intent, session, response) {
         handleNewComplimentRequest(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("You can ask Space Geek tell me a space fact, or, you can say exit... What can I help you with?", "What can I help you with?");
+        response.ask("You can ask Compliment Bot tell me a compliment, or, you can say exit... What can I help you with?", "What can I help you with?");
     },
 
     "AMAZON.StopIntent": function (intent, session, response) {
@@ -131,16 +131,16 @@ SpaceGeek.prototype.intentHandlers = {
  * Gets a random new compliment from the list and returns to the user.
  */
 function handleNewComplimentRequest(response) {
-    // Get a random compliment from the space facts list
+    // Get a random compliment from the compliments list
     var i = Math.floor(Math.random() * COMPLIMENTS.length);
     var speechOutput = COMPLIMENTS[i];
 
-    response.tellWithCard(speechOutput, "SpaceGeek", speechOutput);
+    response.tellWithCard(speechOutput, "ComplimentBot", speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the SpaceGeek skill.
-    var spaceGeek = new SpaceGeek();
-    spaceGeek.execute(event, context);
+    // Create an instance of the ComplimentBot skill.
+    var ComplimentBot = new ComplimentBot();
+    ComplimentBot.execute(event, context);
 };
